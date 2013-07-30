@@ -18,6 +18,7 @@ Fungsi canvas html5.
 <b>5.directory.ign</b><br>
 Membuat, Menghapus dan memeriksa direktori. dengan menggunakan fungsi IGNSDK, <i> ign.mkdir | ign.rmdir | ign.dirExist </i>
 <br>
+
 <b>6.downloadfile.ign</b>
 
 <b>7.from-firefox</b>

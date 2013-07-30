@@ -6,45 +6,45 @@ Adapun penjelasan dari contoh dan fungsi sebagai berikut :
 <b>1.ControlCenterIGN.ign</b><br>
 Pada contoh ini dijelaskan bagaimana memanipulasi fungsi exec dengan menggunakan fungsi jquery dan api SDK, menggunakan tombol dan form.
 
-2.BootStrap.ign<br>
+<b>2.BootStrap.ign</b><br>
 Pada contoh yang kedua, dijelaskan bagaimana cara menggunakan tools bootstrap.
 
-3.calculator.ign
+<b>3.calculator.ign</b>
 
-4.canvas2d.ign
+<b>4.canvas2d.ign</b>
 
-5.directory.ign
+<b>5.directory.ign</b>
 
-6.downloadfile.ign
+<b>6.downloadfile.ign</b>
 
-7.from-firefox
+<b>7.from-firefox</b>
 
-8.handlingfile.ign
+<b>8.handlingfile.ign</b>
 
-9.ignplugin-jquery.ign
+<b>9.ignplugin-jquery.ign</b>
 
-10.ignsdk-config.ign
+<b>10.ignsdk-config.ign</b>
 
-11.kuma.ign
+<b>11.kuma.ign</b>
 
-12.loadBin.ign
+<b>12.loadBin.ign</b>
 
-13.localstorage.ign
+<b>13.localstorage.ign</b>
 
-14.progress.ign
+<b>14.progress.ign</b>
 
-15.python.ign
+<b>15.python.ign</b>
 
-16.sql.ign
+<b>16.sql.ign</b>
 
-17.transparent-widget.ign
+<b>17.transparent-widget.ign</b>
 
-18.webdatabase-2.ign
+<b>18.webdatabase-2.ign</b>
 
-19.webdatabase.ign
+<b>19.webdatabase.ign</b>
 
-20.webgl.ign
+<b>20.webgl.ign</b>
 
-21.webview.ign
+<b>21.webview.ign</b>
 
-22.widget.ign
+<b>22.widget.ign</b>

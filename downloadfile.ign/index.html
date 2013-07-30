@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script>
+
+ign.widgetSize(550,400);
+$(document).ready(function(){
+$(".meter > span").each(function() {
+              $(this)
+                .data("origWidth", $(this).width())
+                .width(0)
+                .animate({
+                  width: $(this).data("origWidth")
+                }, 1200);
+            });	
+});
+//use slot
+var url = "https://dl.dropboxusercontent.com/u/18000315/video/metro-ign.ogv";
+ign.download(url,ign.homePath()+"/dl");
+//use signal
+ign.downloadProgress.connect(function(r,s){
+	$(".r").text(r);
+	$(".s").text(s);
+	var persentation = (r/s)*100;
+	$(".p").text(parseInt(persentation)+"%");
+	$("#progress").css('width',parseInt(persentation)+"%");
+	});
+</script>
+</head>
+<body>
+<h2>Signal downloadProgress()</h2><br>
+download file https://dl.dropboxusercontent.com/u/18000315/video/metro-ign.ogv :
+<div class="meter" id="meter"><span id="progress"></span></div> 
+<br>recieved:<div class="r"></div>
+<br>total:<div class="s"></div>
+<br>persentation:<div class="p">0%</div>
+</body>
+</html>

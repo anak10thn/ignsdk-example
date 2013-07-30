@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	 <meta charset=utf-8 />
+	 <title>Cache Dir Calc</title>
+	 <script src="qrc:///js/jquery.js"></script>
+     <script src="qrc:///js/bootstrap.js"></script>
+     <link href="qrc:///css/bootstrap.css" rel="stylesheet">
+     <meta charset=utf-8 />
+   <script>
+	  var ignsdk = {};
+      ignsdk.ign48 = {};
+      ignsdk.ign48.db = null;
+      
+      ignsdk.ign48.open = function() {
+        var dbSize = 5 * 1024 * 1024; // 5MB
+        ignsdk.ign48.db = openDatabase("IGNSDK", "1.0", "Todo manager", dbSize);
+      }
+      
+      ignsdk.ign48.createTable = function() {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx) {
+          tx.executeSql("CREATE TABLE IF NOT EXISTS todo(ID INTEGER PRIMARY KEY ASC, todo TEXT, added_on DATETIME)", []);
+        });
+      }
+      
+      ignsdk.ign48.addTodo = function(todoText) {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx){
+          var addedOn = new Date();
+          tx.executeSql("INSERT INTO todo(todo, added_on) VALUES (?,?)",
+              [todoText, addedOn],
+              ignsdk.ign48.onSuccess,
+              ignsdk.ign48.onError);
+         });
+      }
+      
+      ignsdk.ign48.onError = function(tx, e) {
+        alert("There has been an error: " + e.message);
+      }
+      
+      ignsdk.ign48.onSuccess = function(tx, r) {
+        // re-render the data.
+        ignsdk.ign48.getAllTodoItems(loadTodoItems);
+      }
+      
+      
+      ignsdk.ign48.getAllTodoItems = function(renderFunc) {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx) {
+          tx.executeSql("SELECT * FROM todo", [], renderFunc,
+              ignsdk.ign48.onError);
+        });
+      }
+      
+      ignsdk.ign48.deleteTodo = function(id) {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx){
+          tx.executeSql("DELETE FROM todo WHERE ID=?", [id],
+              ignsdk.ign48.onSuccess,
+              ignsdk.ign48.onError);
+          });
+      }
+      
+      function loadTodoItems(tx, rs) {
+        var rowOutput = "";
+        var todoItems = document.getElementById("todoItems");
+        for (var i=0; i < rs.rows.length; i++) {
+          rowOutput += renderTodo(rs.rows.item(i));
+        }
+      
+        todoItems.innerHTML = rowOutput;
+      }
+      
+      function renderTodo(row) {
+        return "<li>" + row.todo  + " [<a href='javascript:void(0);'  onclick='ignsdk.ign48.deleteTodo(" + row.ID +");'>Delete</a>]</li>";
+      }
+      
+      function init() {
+        ignsdk.ign48.open();
+        ignsdk.ign48.createTable();
+        ignsdk.ign48.getAllTodoItems(loadTodoItems);
+      }
+      
+      function addTodo() {
+        var todo = document.getElementById("todo");
+        ignsdk.ign48.addTodo(todo.value);
+        todo.value = "";
+      }
+      
+      
+   </script>
+  </head>
+  <body onload="init();" style='background:transparent;background-color:rgba(255,255,255,0.5)'>
+	  <ul id="todoItems">
+    </ul>
+	  <form type="post" onsubmit="addTodo(); return false;">
+      <input type="text" id="todo" name="todo" placeholder="What do you need to do?" style="width: 200px;" />
+      <input type="submit" value="Add Todo Item"/>
+    </form>
+    <id 
+  </body>
+</html>

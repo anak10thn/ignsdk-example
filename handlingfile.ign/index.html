@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+    <script>
+  		$(document).ready(function(){
+  		$(".tbl").click(function(){
+  			if(ign.createFile(ign.homePath()+"/ignsdk.txt",$('.data').val())){
+  				alert("file berhasil di buat : "+ign.homePath()+"/ignsdk.txt");
+  			}
+  			else{
+  				alert("file gagal di buat");
+  			}
+
+  			//baca file
+  			$("div").text(ign.readFile(ign.homePath()+"/ignsdk.txt"));
+  		});
+  		});
+    </script>
+  </head>
+<body>
+	<input type="text" class="data" placeholder="isi text">
+	<input type="submit" class="tbl">
+	<br>Isi file yang terbaca :<br>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "config" : { "debug" : true,
+  "websecurity" : true,
+  "name" : "Runfield"
+  },
+  "window" : { 
+	"transparent" : false, 
+	"noframe" : false, 
+	"fullscreen" : false,
+	"maximize" : true,
+	"width" : 200,
+	"height" : 100},
+  "button" : [
+			"back",
+			"forward",
+			"stop",
+			"reload"
+			]
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Igos Pusat Kendali</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- CSS -->
+    <link href="qrc:///css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="qrc:///css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Javascript -->                     
+    <script src="qrc:///js/jquery.js"></script>                       
+    <script src="qrc:///js/bootstrap.js"></script>
+    <script src="qrc:///js/bootstrap-reponsive.js"></script>
+	<script src="fungsi.js"></script> 
+    
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="index.html">   <img src="img/logo.png" class="img-circle"> IGOS Nusantara Control Center</a>
+          <div class="nav-collapse collapse">   
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+
+     <li class="nav-header"><h5>Pengaturan Desktop</h5></li>
+     <div class="row-fluid">
+		 <div class="well sidebar-nav">
+			<div class="offset2">
+				 <!--compiz -->
+				 <input type='hidden' id='icompiz' value='ccsm'>
+				 <input class="btn btn-primary" type="submit" id="ocompiz" value="Compiz">
+				 <!-- Properti Desktop -->
+				 <input type='hidden' id='iproperti' value='mate-appearance-properties'>
+				 <input class="btn btn-primary" type="submit" id="oproperti" value="Desktop">
+				 <!-- Menu Editor -->
+				 <input type='hidden' id='imozo' value='mozo'>
+				 <input class="btn btn-primary" type="submit" id="omozo" value="Menu Editor">
+				 <!-- ScreenSaver -->
+				 <input type='hidden' id='iscreensaver' value='mate-screensaver-preferences'>
+				 <input class="btn btn-primary" type="submit" id="oscreensaver" value="Layar Penyelamat">
+				 <!-- Aplikasi Awalan -->
+				 <input type='hidden' id='isession' value='mate-session-properties'>
+				 <input class="btn btn-primary" type="submit" id="osession" value="Aplikasi Awalan">
+				  <!-- manajemen File -->
+				 <input type='hidden' id='imanajemen' value='caja-file-management-properties'>
+				 <input class="btn btn-primary" type="submit" id="omanajemen" value="File">
+            </div>
+		</div>
+		<li class="nav-header"><h5>Pengaturan Jaringan</h5></li>
+		<div class="row-fluid">
+		 <div class="well sidebar-nav">
+			<div class="offset2">
+				 <!--Dinding Api -->
+				 <input type='hidden' id='ifirewall' value='firewall-config'>
+				 <input class="btn btn-primary" type="submit" id="ofirewall" value="Dinding Api">
+				 <!--bluetooth -->
+				 <input type='hidden' id='ibluetooth' value='mate-bluetooth-properties'>
+				 <input class="btn btn-primary" type="submit" id="obluetooth" value="Bluetooth">
+				 <!-- manajemen jaringan -->
+				 <input type='hidden' id='ijaringan' value='nm-connection-editor'>
+				 <input class="btn btn-primary" type="submit" id="ojaringan" value="Manajemen Jaringan">
+				 <!-- Network Proxy -->
+				 <input type='hidden' id='iproxy' value='mate-network-properties'>
+				 <input class="btn btn-primary" type="submit" id="oproxy" value="Proxy">
+			</div>
+		</div>
+		<li class="nav-header"><h5>Perangkat Keras</h5></li>
+		<div class="row-fluid">
+		 <div class="well sidebar-nav">
+			<div class="offset2">
+				 <!--Printer Hp -->
+				 <input type='hidden' id='ihp' value='hp-toolbox'>
+				 <input class="btn btn-primary" type="submit" id="ohp" value="HP Printer">
+				 <!--Papan Ketik -->
+				 <input type='hidden' id='ikeyboards' value='system-config-keyboard'>
+				 <input class="btn btn-primary" type="submit" id="okeyboards" value="Keyboard">
+				 <!-- Kontrol Suara -->
+				 <input type='hidden' id='isuara' value='mate-volume-control'>
+				 <input class="btn btn-primary" type="submit" id="osuara" value="Kontrol Suara">
+				 <!-- Mouse -->
+				 <input type='hidden' id='imouse' value='mate-mouse-properties'>
+				 <input class="btn btn-primary" type="submit" id="omouse" value="Mouse">	
+				 <!-- Manajemen Power -->
+				 <input type='hidden' id='ipower' value='mate-power-preferences'>
+				 <input class="btn btn-primary" type="submit" id="opower" value="Manajemen Power">	
+				 <!-- Print Setting -->
+				 <input type='hidden' id='iprint' value='system-config-printer'>
+				 <input class="btn btn-primary" type="submit" id="oprint" value="Seting Cetakan">			
+			</div>
+		</div>
+		<li class="nav-header"><h5>Sistem</h5></li>
+		<div class="row-fluid">
+		 <div class="well sidebar-nav">
+			<div class="offset2">
+				  <!--ganti bahasa -->
+				 <input type='hidden' id='inputval' value='system-config-language'>
+				 <input class="btn btn-primary" type="submit" id="req" value="Penggantian Bahasa">
+				 <!--Software Center -->
+				 <input type='hidden' id='iyumex' value='yumex'>
+				 <input class="btn btn-primary" type="submit" id="oyumex" value="Yumex">
+				 <!-- Tentang-->
+				 <input type='hidden' id='itentang' value='mate-about-me'>
+				 <input class="btn btn-primary" type="submit" id="otentang" value="Tentang">
+				 <!-- User Password -->
+				 <input type='hidden' id='ipass' value='userpasswd'>
+				 <input class="btn btn-primary" type="submit" id="opass" value="Password">	
+				 <!-- Adobe Flash -->
+				 <input type='hidden' id='iadobe' value='flash-player-properties'>
+				 <input class="btn btn-primary" type="submit" id="oadobe" value="Adobe Flash">				 
+			</div>
+		</div>
+	</div>
+	<div id="res"></div>
+
+    </div>
+   
+
+  </body>
+</html>

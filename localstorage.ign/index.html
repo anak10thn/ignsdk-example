@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+  if(!$('.ta').val()){
+		var localStorage = window.localStorage.getItem('value');
+		$('.ta').val(localStorage);
+		$('.tx').text(localStorage);
+	}
+	$('.ta').keyup(function(){
+		var value = $(this).val();
+		$('.tx').text(value);
+		window.localStorage.setItem('value',value);
+	});
+ 
+})
+</script>
+</head>
+<body>
+<textarea class="ta"></textarea><br>
+Stored :<b><div class="tx"></div></b>
+</body>
+</html>

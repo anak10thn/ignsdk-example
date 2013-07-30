@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset=utf-8 />
+	  <title>Web Database</title>
+	  <script src="qrc:///js/jquery.js"></script>
+      <script src="qrc:///js/bootstrap.js"></script>
+     <link href="qrc:///css/bootstrap.css" rel="stylesheet">
+     <meta charset=utf-8 />
+   <script>
+	  var ignsdk = {};
+      ignsdk.ign48 = {};
+      ignsdk.ign48.db = null;
+      
+      ignsdk.ign48.open = function() {
+        var dbSize = 5 * 1024 * 1024; // 5MB
+        ignsdk.ign48.db = openDatabase("IGNSDK", "1.0", "IGN SDK Database", dbSize);
+      }
+      
+      ignsdk.ign48.createTable = function() {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx) {
+          tx.executeSql("CREATE TABLE IF NOT EXISTS ignsql(ID INTEGER PRIMARY KEY ASC, nama TEXT, nim TEXT, fak TEXT, prodi TEXT, added_on DATETIME)", []);
+        });
+      }
+      
+      ignsdk.ign48.addIgnSDK = function(nama,nim,fak,prodi) {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx){
+          var addedOn = new Date();
+          tx.executeSql("INSERT INTO ignsql(nama,nim,fak,prodi, added_on) VALUES (?,?,?,?,?)",
+              [nama,nim,fak,prodi, addedOn],
+              ignsdk.ign48.onSuccess,
+              ignsdk.ign48.onError);
+         });
+      }
+      
+      ignsdk.ign48.onError = function(tx, e) {
+        alert("Terjadi Kesalahan pada : " + e.message);
+      }
+      
+      ignsdk.ign48.onSuccess = function(tx, r) {
+        // re-render the data.
+        ignsdk.ign48.getAllIgnSDKItems(loadIgnSDKItems);
+      }
+      
+      
+      ignsdk.ign48.getAllIgnSDKItems = function(renderFunc) {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx) {
+          tx.executeSql("SELECT * FROM ignsql", [], renderFunc,
+              ignsdk.ign48.onError);
+        });
+      }
+      
+      ignsdk.ign48.deleteIgnSDK = function(id) {
+        var db = ignsdk.ign48.db;
+        db.transaction(function(tx){
+          tx.executeSql("DELETE FROM ignsql WHERE ID=?", [id],
+              ignsdk.ign48.onSuccess,
+              ignsdk.ign48.onError);
+          });
+      }
+      
+      function loadIgnSDKItems(tx, rs) {
+        var rowOutput = "<tr><td width='2%'>Id</td><td width='20%'>Nama</td><td>NIM</td><td>Fakultas</td><td>Prodi</td><td>Time Stamp</td><td>Delete</td></tr>";
+        var IgnSDKItems = document.getElementById("IgnSDKItems");
+        for (var i=0; i < rs.rows.length; i++) {
+        rowOutput += renderIgnSDK(rs.rows.item(i));
+       }
+      
+      IgnSDKItems.innerHTML = rowOutput;
+      }
+      
+      function renderIgnSDK(row) {
+        return "<tr><td>" + row.ID+"</td><td>" + row.nama+"</td><td> " +row.nim+"</td><td> " +row.fak+"</td><td> " +row.prodi+"</td><td> " + row.added_on+ "</td><td> [<a href='javascript:void(0);'  onclick='ignsdk.ign48.deleteIgnSDK(" + row.ID +");'>Delete</a>]</td></tr></table>";
+      }
+      
+      function init() {
+        ignsdk.ign48.open();
+        ignsdk.ign48.createTable();
+        ignsdk.ign48.getAllIgnSDKItems(loadIgnSDKItems);
+      }
+      
+      function addIgnSDK() {
+        var nama = document.getElementById("nama");
+        var nim = document.getElementById("nim");
+        var fak = document.getElementById("fak");
+        var prodi = document.getElementById("prodi");
+        ignsdk.ign48.addIgnSDK(nama.value,nim.value,fak.value,prodi.value);
+        nama.value = "";
+        nim.value = "";
+        fak.value = "";
+        prodi.value = "";
+      }
+      
+   </script>
+   <title>BIODATA MAHASISWA</title>
+  </head>
+  <body onload="init();" style='background:transparent;background-color:rgba(255,255,255,0.5)'>
+	  <p align="center" ><b>BIODATA MAHASISWA</b></p>
+	  <table>
+		  <tr>
+			  <td>Nama</td>
+			  <td><input type="text" id="nama" name="nama" placeholder="Nama" style="width: 200px;" /></td>
+		  </tr>
+		  <tr>
+			  <td>NIM</td>
+			  <td><input type="text" id="nim" name="nim" placeholder="NIM" style="width: 200px;" /></td>
+		  </tr>
+		  <tr>
+			  <td>Fakultas</td>
+			  <td><input type="text" id="fak" name="fak" placeholder="Fakultas" style="width: 200px;" /></td>
+		  </tr>
+		  <tr>
+			  <td>Prodi</td>
+			  <td><input type="text" id="prodi" name="prodi" placeholder="Prodi" style="width: 200px;" /></td>
+		  </tr>
+      </table>
+      <input type="submit" onclick="addIgnSDK();" value="Simpan"/>
+        <table align="center" id="IgnSDKItems" border="1">
+        </table>
+  </body>
+</html>

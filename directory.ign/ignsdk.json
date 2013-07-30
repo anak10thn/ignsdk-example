@@ -1,0 +1,18 @@
+{
+  "config" : { "debug" : true,
+  "websecurity" : true,
+  "name" : "Working With Directory API"
+  },
+  "window" : { 
+	"transparent" : false, 
+	"noframe" : false, 
+	"fullscreen" : false,
+	"width" : 400,
+	"height" : 500},
+  "button" : [
+			"back",
+			"forward",
+			"stop",
+			"reload"
+			]
+}

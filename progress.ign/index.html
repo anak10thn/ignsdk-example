@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+      $(function(){
+        $('#probtn') .click(function(){
+          if($('#progress').val() == '100'){
+            $('#progress').val('0');
+        }
+          var val = 20 + $('#progress').val();
+          $('#progress').val(val);
+        })
+      }) 
+      </script>
+    </head>
+    <body>
+
+      <progress value="20" id="progress" max="100">working</progress> <input id="probtn" type="submit" value="Tekan">
+</body>
+</html>

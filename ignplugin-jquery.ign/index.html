@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.quit').quit();
+	$('.fullscreen').fullscreen(true);
+	$('.nofullscreen').fullscreen(false);
+	ign.widgetSize(300,100);
+	$('.notify').notifySend({'title':'Pesan masuk','msg':'perhatian doang dagelan','time':'3000'});
+	$('.launch').applaunch('firefox');
+})
+</script>
+</head>
+<body>
+<input type="submit" class="quit" value="Keluar"> 
+<input type="submit" class="fullscreen" value="Fullscreen True">
+<input type="submit" class="nofullscreen" value="Fullscreen False">
+<input type="submit" class="notify" value="Notify"> 
+<input type="submit" class="launch" value="jalankan Firefox"> 
+</body>
+</html>

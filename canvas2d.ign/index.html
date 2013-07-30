@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+    </head>
+    <body>
+
+      <canvas id="canvas" width="838" height="220"></canvas>
+
+      <script>
+          var canvasContext = document.getElementById("canvas").getContext("2d");
+            canvasContext.fillRect(250, 25, 150, 100);
+              
+              canvasContext.beginPath();
+                canvasContext.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+                  canvasContext.lineWidth = 15;
+                    canvasContext.lineCap = 'round';
+                      canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+                        canvasContext.stroke();
+      </script>
+</body>
+</html>

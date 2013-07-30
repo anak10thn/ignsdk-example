@@ -1,0 +1,15 @@
+{
+  "config" : { "debug" : true },
+  "window" : { 
+	"transparent" : false, 
+	"noframe" : false, 
+	"fullscreen" : true,
+	"width":1200,
+  "height":800},
+  "button" : [
+			"back",
+			"forward",
+			"stop",
+			"reload"
+			]
+}

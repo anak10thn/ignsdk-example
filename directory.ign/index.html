@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function dir(path,option){
+		  var dir = ign.homePath()+"/"+path;
+		  switch(option){
+			  case "create":
+				if(ign.mkdir(dir)){
+					alert("directory has been created");
+				  }
+				  else {
+					alert("failed! create directory.");
+				  }
+			  break;
+			  case "delete":
+				if(ign.rmdir(dir)){
+					alert("directory has been delete");
+				  }
+				  else {
+					alert("failed! delete directory.");
+				  }
+			  break;
+			  case "exist":
+				if(ign.dirExist(dir)){
+					alert("directory is exist!");
+				  }
+				  else {
+					alert("directory is not exist!");
+				  }
+			  break;
+		  }
+	  }
+	  
+	  function mkdir(){
+		  dir(document.getElementById('dir').value,'create');
+	  }
+	  
+	  function rmdir(){
+		  dir(document.getElementById('dir').value,'delete');
+	  }
+	  
+	  function exist(){
+		  dir(document.getElementById('dir').value,'exist');
+	  }
+    </script>
+  </head>
+  <body>
+	<b>Name :</b> <input type="text" id="dir" value="createbyignsdk">
+	<h2>mkdir()</h2><br>
+	<input type="submit" onclick="mkdir()" value="Create Directory">
+	<br>
+	<h2>rmdir()</h2><br>
+	<input type="submit" rnclick="rmdir()" value="remove Directory">
+	<br>
+	<h2>dirExist()</h2><br>
+	<input type="submit" onclick="exist()" value="Check Directory">
+	<br>
+  </body>
+</html>

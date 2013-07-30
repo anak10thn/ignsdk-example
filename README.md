@@ -3,10 +3,10 @@
 ignsdk-example adalah kumpulan contoh dan implementasi fungsi-fungsi pada SDK IGN.
 Adapun penjelasan dari contoh dan fungsi sebagai berikut :
 
-1.ControlCenterIGN.ign
+1.ControlCenterIGN.ign<br>
 Pada contoh ini dijelaskan bagaimana memanipulasi fungsi exec dengan menggunakan fungsi jquery dan api SDK, menggunakan tombol dan form.
 
-2.BootStrap.ign
+2.BootStrap.ign<br>
 Pada contoh yang kedua, dijelaskan bagaimana cara menggunakan tools bootstrap.
 
 3.calculator.ign

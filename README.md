@@ -9,12 +9,15 @@ Pada contoh ini dijelaskan bagaimana memanipulasi fungsi exec dengan menggunakan
 <b>2.BootStrap.ign</b><br>
 Pada contoh yang kedua, dijelaskan bagaimana cara menggunakan tools bootstrap.
 
-<b>3.calculator.ign</b>
+<b>3.calculator.ign</b><br>
+Contoh kalkulator dengan menggunakan json, javascript, jquery.
 
-<b>4.canvas2d.ign</b>
+<b>4.canvas2d.ign</b><br>
+Fungsi canvas html5.
 
-<b>5.directory.ign</b>
-
+<b>5.directory.ign</b><br>
+Membuat, Menghapus dan memeriksa direktori. dengan menggunakan fungsi IGNSDK, <i> ign.mkdir | ign.rmdir | ign.dirExist </i>
+<br>
 <b>6.downloadfile.ign</b>
 
 <b>7.from-firefox</b>

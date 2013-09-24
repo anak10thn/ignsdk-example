@@ -13,7 +13,7 @@ $(document).ready(function(){
 			mysql = "hostname:user:password:database";
 			sqlite2 or sqlite3 = "database file";
 	*/
-	var driver = sql.driver("mysql","localhost:root:n1d2r3:qt");
+	var driver = sql.driver("mysql","localhost:root:password:qt");
 	var qry = sql.query("select * from peserta");
 	if(driver){
 		$(".json").html(qry);

@@ -1,0 +1,15 @@
+{
+  "config" : { "debug" : true,
+    "websecurity" : true },
+  "window" : { 
+	"transparent" : false, 
+	"noframe" : false, 
+	"fullscreen" : false
+	 },
+  "button" : [
+			"back",
+			"forward",
+			"stop",
+			"reload"
+			]
+}

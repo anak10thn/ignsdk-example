@@ -1,0 +1,16 @@
+{
+  "config" : { 
+		"debug" : true,
+		"websecurity" : true,
+		"name" : "avatar"
+  },
+  "window" : { 
+		"transparent" : false, 
+		"noframe" : false, 
+		"fullscreen" : false,
+		"maximize" : false,
+		"width" : 300,
+		"height" : 400
+	},
+  "button" : []
+}

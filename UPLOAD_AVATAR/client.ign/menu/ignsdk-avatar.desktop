@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=avatar
+Exec=/usr/bin/ignsdk -p /opt/ignsdk/avatar.ign
+Icon=/opt/ignsdk/avatar.ign/icons/app.png
+Terminal=false
+Type=Application
+Categories=Utility

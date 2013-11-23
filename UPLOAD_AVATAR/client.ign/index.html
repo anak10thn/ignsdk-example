@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-git2.js"></script>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<script>
+/*$(document).ready(function(){
+  var canvasData = document.getElementsByTagName('canvas')[0].toDataURL('image/png');
+  canvasData.replace('data:image\/png;base64', '');
+
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost/avatar/index.php',
+    data: 'rawData='+canvasData,
+    success: function(data){
+      alert(data);
+    }
+  });
+});*/
+function saveViaAJAX()
+{
+	var testCanvas = document.getElementById("ava");  
+	var canvasData = testCanvas.toDataURL("image/png");
+	var postData = "canvasData="+canvasData;
+
+	//alert("canvasData ="+canvasData );	  
+	var ajax = new XMLHttpRequest();
+	ajax.open("POST",'http://localhost/avatar/index.php',true);    
+	ajax.setRequestHeader('Content-Type', 'canvas/upload');
+	//ajax.setRequestHeader('Content-TypeLength', postData.length);
+
+	ajax.send(postData);  
+}
+</script>
+</head>
+<body>
+  <canvas id="ava" width="300" height="300"></canvas>
+  <button onclick="saveViaAJAX()">Save</button>
+  <script>
+var canvas = document.getElementById('ava');
+
+  if (canvas.getContext) {
+    var context = canvas.getContext('2d');
+    var imgObj = new Image();
+    imgObj.src = 'avatar.png';
+
+    imgObj.onload = function () {
+        context.drawImage(imgObj, 0, 0, 100, 100);
+    }
+  }
+</script>
+</body>
+</html>

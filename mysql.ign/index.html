@@ -13,11 +13,11 @@ $(document).ready(function(){
 			mysql = "hostname:user:password:database";
 			sqlite2 or sqlite3 = "database file";
 	*/
-	var driver = sql.driver("mysql","localhost:root:password:qt");
+	var driver = sql.driver("mysql","localhost:root:pass123:peserta");
 	var qry = sql.query("select * from peserta");
 	if(driver){
-		$(".json").html(qry);
-		var query = $.parseJSON(qry);
+		$(".json").html(JSON.stringify(qry));
+		var query = qry;
 		var html = "";
 		$("h1").html("Status Database Connection : "+query.status);
 		if(query.status){

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript" src="qrc:///js/ign.js"></script>
+<script type="text/javascript">
+var sys = ign.sys();
+$(document).ready(function(){
+	$('#btn').click(function(){
+		var cmd = $('#cmd').val();
+		sys.exec(cmd);
+		sys.out.connect(function(out){
+			$('#out').prepend(out+"<br>");
+		})
+	});
+	$('#kill').click(function(){
+		sys.kill();
+	});
+});
+</script>
+</head>
+<body>
+<input type="text" value="ping google.com" id="cmd">
+<input type="submit" value="run" id="btn">
+<input type="submit" value="kill" id="kill"><br>
+<div id="out"></div>
+</body>
+</html>

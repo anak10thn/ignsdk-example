@@ -1,0 +1,21 @@
+{
+  "config" : { 
+		"debug" : true,
+		"websecurity" : true,
+		"name" : "ign-exec"
+  },
+  "window" : { 
+		"transparent" : false, 
+		"noframe" : false, 
+		"fullscreen" : false,
+		"maximize" : false,
+		"width" : 700,
+		"height" : 800
+	},
+  "button" : [
+		"back",
+		"forward",
+		"stop",
+		"reload"
+	]
+}

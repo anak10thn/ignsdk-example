@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Flot Examples: Real-time updates</title>
+	<link href="examples.css" rel="stylesheet" type="text/css">
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+	<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
+	<script type="text/javascript">
+
+	$(function() {
+
+		// We use an inline data source in the example, usually data would
+		// be fetched from a server
+
+		var data = [],
+			totalPoints = 300;
+		var sys = ign.sys();
+		
+		function getRandomData() {
+			var cmd = 'cat /dev/ttyACM0';
+				sys.exec(cmd);
+			var data = [];
+			var jkt = 0;
+			var j = true;
+			var plot;
+			sys.out.connect(function(out){
+				//console.log(jkt);
+				if(jkt < 10){
+					var dt = parseInt(out);
+					console.log(dt)
+					if(!isNaN(dt)){
+						//console.log([i, dt]);
+						data.push([jkt, dt]);
+						jkt++;
+						console.log(jkt)
+					}
+				}
+				else{
+					//console.log(jkt);
+					//console.log(data);
+					
+					if(j){
+						 plot = $.plot("#placeholder", [ data ], {
+							series: {
+								shadowSize: 0	// Drawing is faster without shadows
+							},
+							yaxis: {
+								min: 0,
+								max: 600
+							},
+							xaxis: {
+								show: false
+							}
+						});
+						j = false;
+					}
+					else{
+						plot.setData([data]);
+						plot.draw();
+						//console.log(data);
+					}
+					jkt = 0;
+					data = [];
+				}
+				
+			})
+		}
+
+		// Set up the control widget
+		getRandomData();
+
+		
+	});
+
+	</script>
+</head>
+<body>
+
+	<div id="header">
+		<h2>meter testing</h2>
+	</div>
+
+	<div id="content">
+
+		<div class="demo-container">
+			<div id="placeholder" class="demo-placeholder"></div>
+		</div>
+
+	</div>
+
+</body>
+</html>

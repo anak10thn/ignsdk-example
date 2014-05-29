@@ -2,13 +2,13 @@
   "config" : { 
 		"debug" : true,
 		"websecurity" : true,
-		"name" : "ign-exec"
+		"name" : "meter"
   },
   "window" : { 
 		"transparent" : false, 
 		"noframe" : false, 
 		"fullscreen" : false,
-		"maximize" : false,
+		"maximize" : true,
 		"width" : 700,
 		"height" : 800
 	},

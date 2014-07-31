@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note5 - HTML5 Plain Text Editor</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <style>
+    body {
+      width: 100%;
+      padding-top: 65px;
+    }
+    .container-full {
+      width: 100%;
+    }
+    .no-margin {
+      margin: 0;
+    }
+    .no-padding {
+      padding: 0;
+    }
+    #text-area {
+      width: 100%;
+      margin: auto;
+    }
+    #inputFile {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="openModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Open file</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="inputFileName" class="col-lg-3 control-label">Select file</label>
+              <div class="col-lg-9">
+                <input type="file" class="form-control" id="inputFile">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="inputFileName">
+                  <span class="input-group-btn">
+                    <a class="btn btn-default" id="openFile" role="button">Browse</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" id="loadFile" data-dismiss="modal">Open</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Save file</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="newFileName" class="col-lg-3 control-label">File name</label>
+              <div class="col-lg-9">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="newFileName">
+                  <span class="input-group-addon"></span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info" id="saveFile" data-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-full">
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li><a href="#openModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Open</a></li>
+          <li><a href="#saveModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Save</a></li>
+          <li><a href="#" id="undoAction"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Undo</a></li>
+          <li><a href="#" id="redoAction"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Redo</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <section id="note5">
+    <div class="container-full">
+      <div class="row no-margin">
+        <div class="col-lg-12 no-padding inline">
+          <textarea class="col-lg-12 form-control" id="text-area" contenteditable="true"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/note5.js"></script>
+</body>
+
+</html>

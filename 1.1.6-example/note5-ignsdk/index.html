@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Note5 - HTML5 Plain Text Editor</title>
   <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <script>
+  ign.setDev(true);
+  </script>
   <style>
     body {
       width: 100%;
@@ -76,7 +79,7 @@
               <div class="col-lg-9">
                 <div class="input-group">
                   <input type="text" class="form-control" id="newFileName">
-                  <span class="input-group-addon"></span>
+                  <span class="input-group-addon" onclick="selectFile()">Select</span>
                 </div>
               </div>
             </div>

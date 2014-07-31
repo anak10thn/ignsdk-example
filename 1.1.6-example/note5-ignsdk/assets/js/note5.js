@@ -1,5 +1,4 @@
 var fs = ign.filesystem();
-
 // Load file function
 var loadFile = function() {
   var path = $('#inputFileName').val();
@@ -23,6 +22,14 @@ var saveFile = function() {
 // Undo / Redo function
 var formatText = function(act, sel) {
   document.execCommand(act, false, sel);
+}
+
+// Select File
+var selectFile = function(){
+  var target = fs.saveFileDialog();
+  if(target != ""){
+    $('#newFileName').val(target);
+  }
 }
 
 $(function() {

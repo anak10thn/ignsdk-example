@@ -1,10 +1,7 @@
-note5
+NOTE5-IGNSDK
 =====
 
-note5 is a HTML5 Plain Text Editor. It implements HTML5 File API, specifically FileReader and Blob.
-
-##Compatible Web Browser##
-* Chrome (including WebKit based web browser)
+note5 is a HTML5 Plain Text Editor. It implements IGNSDK File API, specifically FileReader and Blob.
 
 ##Features##
 * Open file
@@ -17,4 +14,7 @@ note5 is a HTML5 Plain Text Editor. It implements HTML5 File API, specifically F
 * Others web browser compatibilty
 
 ##Maintainer##
-* Fitra Aditya (fitra@g.pl)
+* Fitra Aditya (fitra@g.pl) [note5](https://github.com/fitraditya/note5)
+
+##Contributor##
+* Ibnu Yahya (anak10thn@gmail.com) [note5-ignsdk](https://github.com/anak10thn/ignsdk-example/tree/master/1.1.6-example/note5-ignsdk)

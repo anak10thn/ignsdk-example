@@ -1,0 +1,69 @@
+header {
+	display: block;
+	height:30px;
+	text-align: center;
+	position: relative;
+	background: #000;
+	border-bottom: 1px solid green;
+	color:#fff;
+	font-size:20px;
+	text-shadow:
+		0 0 1px #FFFFA0,
+		0 0 3px #FFFF4D,
+		0 0 7px #FFFF41,
+		0 0 11px #FFFF2A,
+		0 0 15px #FFFF2B,
+		0 0 20px #FEFE00,
+		0 0 3px #F7F700;
+}
+header:hover{
+	background: green;
+}
+
+/*---Tabel---*/
+#canvas {
+	border:2px solid #000;
+	background:gray;
+}
+
+/* ---Tombol---*/
+#button{
+	background:#000;
+	border-top: 2px solid green;
+}
+button:hover{
+	background: gray;
+}
+
+a.btn {
+	font-size: 11px;
+	display: inline-block;
+	background: #000;
+	padding: 15px 15px 15px;
+	border-radius: 0px;
+	margin-top: 0px;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+a.btn:hover {
+	background: green;
+	text-shadow:
+		0 0 1px #FFFFA0,
+		0 0 5px #FFFF4D,
+		0 0 10px #FFFF41,
+		0 0 15px #FFFF2A,
+		0 0 20px #FFFF2B,
+		0 0 25px #FEFE00,
+		0 0 30px #F7F700;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	outline: none;
+	transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	
+}

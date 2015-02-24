@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript">
+var sys = ign.sys();
+var fs = ign.filesystem();
+var sql = ign.sql();
+var dbFile = "coba.db";
+var config = {
+    driver : "sqlite",
+    db : dbFile
+}
+$(document).ready(function(){
+	//reference http://goo.gl/E0obMa
+	if(fs.info(dbFile).exists){
+		sql.driver(config);
+		load();
+	}
+	else{
+		setupDb();
+	}
+});
+
+function setupDb(){
+	sql.driver(config);
+	sql.query("create table user(id INTEGER PRIMARY KEY AUTOINCREMENT,nama varchar(10), umur smallint)");
+}
+
+function add(){
+	var nama = $("#nama").val();
+	var umur = $("#umur").val();
+	var add = sql.query("insert into user (nama,umur) values ('"+nama+"',"+umur+")");
+	alert("input berhasil status "+add.status);
+}
+
+function load(){
+	var loadData = sql.query("select * from user");
+	var html="";
+	loadData.content.forEach(function(data){
+		html += "Nama : " + data.nama + "<br>";
+		html += "Umur : " + data.umur + "<br>";
+		html += "<a href='#' onclick='del("+data.id+")'>Delete</a><hr>"
+	});
+	$("#out").html(html);
+}
+
+function del(id){
+	var del = sql.query("delete from user where id="+id);
+}
+</script>
+</head>
+<body>
+<input type="text" placeholder="Nama" id="nama"><br>
+<input type="text" placeholder="Umur" id="umur"><br>
+<input type="submit" value="Tambah Data" onclick="add()">
+
+<div id="out"></div>
+</body>
+</html>

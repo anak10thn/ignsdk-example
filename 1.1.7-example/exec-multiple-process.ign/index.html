@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="qrc:///js/jquery.js"></script>
+<script type="text/javascript">
+var sys = ign.sys();
+$(document).ready(function(){
+    var a,b;
+
+	$('#btnA').click(function(){
+		var cmd = $('#cmdA').val();
+		a = sys.exec(cmd);
+        var box = $("#outA");
+		a.out.connect(function(out){
+            var txt = $.trim(out);
+            box.val(box.val() + txt);
+		})
+	});
+	$('#killA').click(function(){
+		a.kill();
+	});
+
+    $('#btnB').click(function(){
+        alert('');
+		var cmd = $('#cmdB').val();
+		b = sys.exec(cmd);
+		var box = $("#outB");
+		b.out.connect(function(out){
+            var txt = $.trim(out);
+            box.val(box.val() + txt);
+		})
+	});
+	$('#killB').click(function(){
+		b.kill();
+	});
+});
+</script>
+</head>
+<body>
+<input type="text" value="ping google.com" id="cmdA">
+<input type="submit" value="runA" id="btnA">
+<input type="submit" value="killA" id="killA"><br>
+<!-- process A -->
+<input type="text" value="ping facebook.com" id="cmdB">
+<input type="submit" value="runB" id="btnB">
+<input type="submit" value="killB" id="killB"><br>
+<textarea id="outA"></textarea>
+<textarea id="outB"></textarea>
+</body>
+</html>

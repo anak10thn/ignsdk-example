@@ -11,7 +11,7 @@ $(document).ready(function(){
 		var cmd = $('#cmdA').val();
 		a = sys.exec(cmd);
         var box = $("#outA");
-		a.out.connect(function(out){
+		a.out.connect(function(out,err){
             var txt = $.trim(out);
             box.val(box.val() + txt);
 		})
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		var cmd = $('#cmdB').val();
 		b = sys.exec(cmd);
 		var box = $("#outB");
-		b.out.connect(function(out){
+		b.out.connect(function(out,err){
             var txt = $.trim(out);
             box.val(box.val() + txt);
 		})
